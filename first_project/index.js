@@ -1,24 +1,20 @@
+// Console output
 
-// Timers
-// SetTimeout の遅延実行時間は100msec
-// SetTimeout の中身の処理は遅延実行される
-// JavaScriptはシングルスレッドなので、3秒間のループ処理後にSetTimeoutの中身が実行される
-// Timers
-setTimeout(()=>{
-    console.log("setTimeout()");
-}, 1)
+//　痴漢文字列の種遂に関して
+// %s : 文字列
+// %d : 数値(整数もしくは小数)
+// %i : 整数
+// %f : 小数
+// %o : jsonオブジェクト
 
-//check
-setImmediate(()=>{
-    console.log("setImmediate");
-})
+//log : 指定されたデータを表示
+console.log("Message : %s", "hello");
 
-// キュー(nextTickQueue)の実行
-process.nextTick(()=>{
-    console.log("nextTic");
-})
+//trace : 呼指定されたデータを表示 & 呼び出されたスタックまで表示
+console.trace("hello");
 
-// キュー(MicroTaskQueue)の実行
-Promise.resolve().then(() => {
-    console.log("Promise.resolve().then()");
-})
+//console.debug();
+//console.info();
+//console.warin();
+//console.error();
+
