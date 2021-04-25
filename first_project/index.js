@@ -1,20 +1,29 @@
-// Console output
+//クラスの作成
 
-//　痴漢文字列の種遂に関して
-// %s : 文字列
-// %d : 数値(整数もしくは小数)
-// %i : 整数
-// %f : 小数
-// %o : jsonオブジェクト
+var Audio = class {
+    constructor(value){
+        this.value = value;
+    }
 
-//log : 指定されたデータを表示
-console.log("Message : %s", "hello");
+    speaker(){
+        console.log("bow Wow");
+    }
+};
 
-//trace : 呼指定されたデータを表示 & 呼び出されたスタックまで表示
-console.trace("hello");
+var Player = class extends Audio {
+    constructor(value){
+        super(value);
+    }
 
-//console.debug();
-//console.info();
-//console.warin();
-//console.error();
+    echo(){
+        super.speaker();
+    }
 
+    speaker(){
+        console.log(`sound ${this.value}`);
+    }
+};
+
+var audio_player = new Player("music start");
+audio_player.echo();
+audio_player.speaker();
