@@ -1,29 +1,30 @@
-//クラスの作成
+//クラスの作成(関数での実装)
+var util = require("util");
 
-var Audio = class {
-    constructor(value){
-        this.value = value;
-    }
-
-    speaker(){
-        console.log("bow Wow");
-    }
+// 親クラス
+var CD_Player = function(value){
+    this.value = value;
 };
 
-var Player = class extends Audio {
-    constructor(value){
-        super(value);
-    }
-
-    echo(){
-        super.speaker();
-    }
-
-    speaker(){
-        console.log(`sound ${this.value}`);
-    }
+CD_Player.prototype.Audio = function(){
+    console.log("Music Start");
 };
 
-var audio_player = new Player("music start");
-audio_player.echo();
-audio_player.speaker();
+
+// 小クラス
+var Sound = function(value){
+    Sound.super_.call(this, value);
+};
+util.inherits(Sound, CD_Player);
+
+Sound.prototype.echo = function () {
+    Sound.super_.prototype.Audio.call(this);
+};
+
+Sound.prototype.Audio = function(){
+    console.log(`play ${this.value}`);
+};
+
+var music_palyer = new Sound("test");
+music_palyer.echo();
+music_palyer.Audio();
